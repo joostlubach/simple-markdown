@@ -31,6 +31,7 @@ export type ASTNode = SingleASTNode | Array<SingleASTNode>;
 
 export interface State {
     key?: string | number | undefined;
+    pos: number;
     inline?: boolean | undefined;
     [prop: string]: any,
 }
