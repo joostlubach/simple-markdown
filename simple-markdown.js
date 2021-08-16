@@ -461,6 +461,7 @@ var parserFor = function(rules /*: ParserRules */, defaultState /*: ?State */) {
             }
 
             state.prevCapture = capture;
+            state.pos += state.prevCapture[0].length;
             source = source.substring(state.prevCapture[0].length);
         }
         return result;
@@ -478,6 +479,7 @@ var parserFor = function(rules /*: ParserRules */, defaultState /*: ?State */) {
         // text (see the list rule for more information). This stores
         // the full regex capture object, if there is one.
         latestState.prevCapture = null;
+        latestState.pos = 0;
         return nestedParse(preprocess(source), latestState);
     };
     return outerParse;
